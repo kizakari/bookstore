@@ -1,0 +1,68 @@
+.add-to-cart{
+    background-color:  rgb(204, 57, 87);
+    color: white;
+    border-radius: 30px;
+    padding: 10px 28px;
+    border: 2px solid rgb(204, 57, 87);
+    margin-right: 10px;
+}
+.add-to-cart:hover{
+    background-color: rgb(145, 39, 60);
+    padding: 10px 30px;
+    margin-right: 6px;
+}
+.add-to-wishlist{
+    background-color: white;
+    color: rgb(83,60,157);
+    border-radius: 30px;
+    padding: 10px 28px;
+    border: 2px solid rgb(83,60,157);
+}
+.add-to-wishlist:hover{
+    background-color: rgb(247, 230, 233);
+}
+.format button{
+    background-color: rgb(246,245,247);
+    border-radius: 5px;
+    border: 2px solid rgb(83,60,157);
+    padding: 20px 28px;
+    width: 200px;
+    text-align: left;
+}
+.book-name{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.author{
+    font-size: small;
+}
+.author a{
+    color: rgb(83,60,157);
+    text-decoration: none;
+}
+.get-audio a{
+    color: rgb(83,60,157);
+    text-decoration: none;
+}
+.available{
+    color: green;
+    font-weight:500;
+}
+.td-left{
+    text-align: right;
+    padding-right: 10px;
+}
+.td-right{
+    text-align: left;
+}
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
