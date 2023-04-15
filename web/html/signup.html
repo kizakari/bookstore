@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/web/css/signUp&In.css">
+    <script src="/web/js/sign_up.js"></script>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body style="font-size: 20px;">
+    <div class="main" style="max-width: 500px;margin: auto;">
+        <div class="icon">BK BOOK</div>
+        <div class="header">Create Account</div>
+        <form name="sign_upForm" 
+            onsubmit="return formValidate()"
+            action="/apps/guest/modules/sign_up/actions/sign_up.controller.php" 
+            method="post" style="margin-top: 50px;">
+            Your name<br>
+            <input type="text" name="name"><br>
+            Email<br>
+            <input type="text" name="email"><br>
+            Password<br>
+            <input type="password" name="password"><br>
+            Re-enter password<br>
+            <input type="password" name="re_password"><br>
+            <input type="submit" style="color: white;background-color: black;"><br>
+            <div id = "email-warn">The email address is already used, sign-in or choose another email address!</div>
+            By create an account, you agree to the BK Book <a href="#">Terms of service</a> and <a href="#">Privacy Policy</a><br>
+            Already have an account? <a href="/apps/guest/modules/sign_in/actions/sign_in.controller.php">Sign-in</a>
+        </form>
+    </div>
+</body>
+</html>

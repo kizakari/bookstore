@@ -1,0 +1,1 @@
+<?php header("Location: /apps/guest/modules/sign_up/actions/sign_up.controller.php"); ?>
