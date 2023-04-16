@@ -1,4 +1,8 @@
-CREATE TABLE `site_user` (
+CREATE DATABASE IF NOT EXISTS BKStore;
+
+USE BKStore;
+
+CREATE TABLE if not exists `site_user` (
   `id` integer PRIMARY KEY,
   `name` varchar(255),
   `email` varchar(255),
@@ -6,13 +10,13 @@ CREATE TABLE `site_user` (
   `password` varchar(255)
 );
 
-CREATE TABLE `user_address` (
+CREATE TABLE if not exists `user_address` (
   `user_id` integer,
   `address_id` integer,
   `is_default` boolean
 );
 
-CREATE TABLE `address` (
+CREATE TABLE if not exists `address` (
   `id` integer PRIMARY KEY,
   `province` varchar(255),
   `district` varchar(255),
@@ -20,27 +24,27 @@ CREATE TABLE `address` (
   `home_number` integer
 );
 
-CREATE TABLE `payment_type` (
+CREATE TABLE if not exists `payment_type` (
   `id` integer PRIMARY KEY,
-  `value` string
+  `value` varchar(255)
 );
 
-CREATE TABLE `user_payment_method` (
+CREATE TABLE if not exists `user_payment_method` (
   `id` integer PRIMARY KEY,
   `user_id` integer,
   `payment_type_id` integer,
-  `provider` string,
+  `provider` varchar(255),
   `account_number` integer,
   `expiry_date` date,
   `is_default` boolean
 );
 
-CREATE TABLE `product_category` (
+CREATE TABLE if not exists `product_category` (
   `id` integer PRIMARY KEY,
   `category_name` varchar(255)
 );
 
-CREATE TABLE `product` (
+CREATE TABLE if not exists `product` (
   `id` integer PRIMARY KEY,
   `category_id` integer,
   `variation_option_id` integer,
@@ -50,24 +54,24 @@ CREATE TABLE `product` (
   `product_image` text
 );
 
-CREATE TABLE `variation_option` (
+CREATE TABLE if not exists `variation_option` (
   `id` integer PRIMARY KEY,
   `value` varchar(255)
 );
 
-CREATE TABLE `shopping_cart` (
+CREATE TABLE if not exists `shopping_cart` (
   `id` integer PRIMARY KEY,
   `user_id` integer
 );
 
-CREATE TABLE `shopping_cart_item` (
+CREATE TABLE if not exists `shopping_cart_item` (
   `id` integer PRIMARY KEY,
   `cart_id` integer,
   `product_id` integer,
   `qty` integer
 );
 
-CREATE TABLE `shop_order` (
+CREATE TABLE if not exists `shop_order` (
   `id` integer PRIMARY KEY,
   `user_id` integer,
   `order_date` date,
@@ -78,7 +82,7 @@ CREATE TABLE `shop_order` (
   `order_status` integer
 );
 
-CREATE TABLE `order_line` (
+CREATE TABLE if not exists `order_line` (
   `id` integer PRIMARY KEY,
   `product_id` integer,
   `shop_order_id` integer,
@@ -86,18 +90,18 @@ CREATE TABLE `order_line` (
   `price` double
 );
 
-CREATE TABLE `shipping_method` (
+CREATE TABLE if not exists `shipping_method` (
   `id` integer PRIMARY KEY,
   `name` varchar(255),
   `price` double
 );
 
-CREATE TABLE `order_status` (
+CREATE TABLE if not exists `order_status` (
   `id` integer PRIMARY KEY,
   `status` integer
 );
 
-CREATE TABLE `customer_review` (
+CREATE TABLE if not exists `customer_review` (
   `id` integer PRIMARY KEY,
   `user_id` integer,
   `ordered_product_id` integer,
@@ -105,7 +109,7 @@ CREATE TABLE `customer_review` (
   `comment` text
 );
 
-CREATE TABLE `promotion` (
+CREATE TABLE if not exists `promotion` (
   `id` integer PRIMARY KEY,
   `name` varchar(255),
   `description` text,
@@ -114,7 +118,7 @@ CREATE TABLE `promotion` (
   `end_date` date
 );
 
-CREATE TABLE `promotion_item` (
+CREATE TABLE if not exists `promotion_item` (
   `item_id` integer,
   `promotion_id` integer
 );
