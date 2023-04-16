@@ -147,6 +147,10 @@ ALTER TABLE `shop_order` ADD FOREIGN KEY (`shipping_method`) REFERENCES `shippin
 
 ALTER TABLE `shop_order` ADD FOREIGN KEY (`order_status`) REFERENCES `order_status` (`id`);
 
+ALTER TABLE `order_line` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+ALTER TABLE `order_line` ADD FOREIGN KEY (`shop_order_id`) REFERENCES `shop_order` (`id`);
+
 ALTER TABLE `customer_review` ADD FOREIGN KEY (`user_id`) REFERENCES `site_user` (`id`);
 
 ALTER TABLE `customer_review` ADD FOREIGN KEY (`ordered_product_id`) REFERENCES `order_line` (`id`);
