@@ -1,6 +1,6 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/model/Database.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/model/UserAccount.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/Database.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/UserAccount.php';
     require_once "../templates/sign_up.template.php";
     $sign_upView->startForm();
     if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -21,7 +21,7 @@
             #if does not exist okay
             $user->save();
             sleep(2);
-            header("Location: /apps/guest/modules/sign_in/actions/sign_in.controller.php");
+            header("Location: /bookstore/apps/guest/modules/sign_in/actions/sign_in.controller.php");
         }
     }
     

@@ -1,1 +1,1 @@
-<?php header("Location: /apps/guest/modules/sign_up/actions/sign_up.controller.php"); ?>
+<?php header("Location: /bookstore/apps/guest/modules/home/actions/homepage.controller.php"); ?>

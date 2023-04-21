@@ -1,7 +1,7 @@
 <?php
     class sign_upViewClass{
         function startForm(){
-            include($_SERVER['DOCUMENT_ROOT']."/web/html/signup.html");
+            include($_SERVER['DOCUMENT_ROOT']."/bookstore/web/html/signup.html");
         }
         function existEmail(){
             echo "<script>

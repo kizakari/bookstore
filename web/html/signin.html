@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link rel="stylesheet" href="/web/css/signUp&In.css">
-    <script src="/web/js/sign_in.js"></script>
+    <link rel="stylesheet" href="/bookstore/web/css/signUp&In.css">
+    <script src="/bookstore/web/js/sign_in.js"></script>
     <style>
         body{
             font-family: sans-serif;
@@ -18,7 +18,7 @@
         <div class="icon">BK BOOK</div>
         <div class="header">Sign in</div>
         <form name="sign_inForm" onsubmit="return formValidate()" 
-        action="/apps/guest/modules/sign_in/actions/sign_in.controller.php" 
+        action="/bookstore/apps/guest/modules/sign_in/actions/sign_in.controller.php" 
         method="post" 
         style="margin-top: 50px;">
             Email<br>
@@ -28,7 +28,7 @@
             <input type="submit" style="color: white;background-color: black;"><br>
             <div id = "account-warn">Invalid account!</div>
             By sign-in, you agree to the BK Book <a href="#">Terms of service</a> and <a href="#">Privacy Policy</a><br>
-            New to BK Book? <a href="/apps/guest/modules/sign_up/actions/sign_up.controller.php">Sign-up</a>
+            New to BK Book? <a href="/bookstore/apps/guest/modules/sign_up/actions/sign_up.controller.php">Sign-up</a>
         </form>
     </div>
 </body>
