@@ -259,3 +259,12 @@ body {
     height: 50px;
     border-radius: 25px;
 }
+
+#fuck{
+    color:red !important;
+}
+
+.navbar-nav li:hover{
+    background-color: rgb(76, 168, 194) !important;
+    border-radius: 10px;
+}

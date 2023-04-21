@@ -13,6 +13,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="/bookstore/web/js/homepage.js"></script>
         <title>BK Bookstore</title>
     </head>
 
@@ -26,19 +27,19 @@
           
             <div class="collapse navbar-collapse justify-content-center p-2" id="navbarSupportedContent" >
               <ul class="navbar-nav mr-auto" style="font-size: 20px;">
-                <li class="nav-item active px-2">
-                  <a class="nav-link text-dark" href="#">Trang chủ <span class="sr-only"></span></a>
+                <li class="nav-item px-2" id="home-page" onclick="choose('home-page')">
+                  <a class="nav-link text-dark" href="#"> <span class="sr-only">Trang chủ</span></a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2" id="introduce-page" onclick="choose('introduce-page')">
                   <a class="nav-link text-dark" href="#">Giới thiệu</a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2" id="product-page" onclick="choose('product-page')">
                     <a class="nav-link text-dark" href="#">Sản phẩm</a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2" id="news-page" onclick="choose('news-page')">
                     <a class="nav-link text-dark" href="#">Tin tức</a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2" id="policy-page" onclick="choose('policy-page')">
                     <a class="nav-link text-dark" href="#">Chính sách</a>
                 </li>
                 <!--<li class="nav-item dropdown">
