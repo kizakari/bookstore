@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto';
 }
 
-.header {
+.heading {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -18,9 +18,6 @@ body {
     align-items: center;
 }
 
-.header-logo-img{
-
-}
 
 .header-logo-text {
     font-size: 20px;
@@ -221,10 +218,6 @@ body {
     font-weight: 700;
 }
 
-.footer{
-
-}
-
 .footer-heading{
     padding:10px;
     text-align: center;
@@ -262,4 +255,7 @@ body {
     background-color: #00ABC5;
 }
 
-
+#profile-pic{
+    height: 50px;
+    border-radius: 25px;
+}

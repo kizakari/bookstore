@@ -1,18 +1,25 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/model/login.db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/model/Database.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/model/UserAccount.php';
     require_once "../templates/sign_up.template.php";
     $sign_upView->startForm();
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         echo "Checking account exist!";
-        $account = new Account($_POST["name"],$_POST["email"],$_POST["password"]);
+        $database = new Database();
+        $db = $database->connect();
+        $user = new Account($db);
+
+        $user->name = $_POST["name"];
+        $user->email = $_POST["email"];
+        $user->password = $_POST["password"];
         #Check user email
-        if($sign_upModel->checkAccountExist($account)){
-            #if exist then show warning for user
+        if($user->isExist()){
+            //if exist then show warning for user
             $sign_upView->existEmail();
         }
         else{
             #if does not exist okay
-            $sign_upModel->addNewAccount($account);
+            $user->save();
             sleep(2);
             header("Location: /apps/guest/modules/sign_in/actions/sign_in.controller.php");
         }
