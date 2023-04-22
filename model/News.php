@@ -1,6 +1,11 @@
 <?php
 class News{
-    public $id,$author,$date,$name,$content,$pdo;
+    public $id;
+    public $author;
+    public $date;
+    public $title;
+    public $content;
+    public $pdo;
     function __construct($pdo){
         $this->pdo = $pdo;
     }
@@ -23,8 +28,13 @@ class News{
     }
 
     function getPolicy(){
-        $stmt = $this->pdo->query("SELECT * FROM news WHERE name = 'policy'");
+        $stmt = $this->pdo->query("SELECT * FROM news WHERE id='1'");
         return $stmt;
     }
-}
+
+    function getNewsList(){
+        $stmt = $this->pdo->query("SELECT * FROM news WHERE id!='1'");
+        return $stmt;
+    }
+}   
 ?>

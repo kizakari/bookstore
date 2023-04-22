@@ -2,31 +2,25 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    #require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/Database.php';
-    #require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/News.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/Database.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/bookstore/model/News.php';
 
-    #$database = new Database();
-    #$db = $database->connect();
+    $database = new Database();
+    $db = $database->connect();
 
-    #$news = new News($db);
+    $news = new News($db);
 
-    #$result = $news->getPolicy();
+    $result = $news->getPolicy();
 
-    #$num = $result->rowCount();
-    $num = 5;
+    $num = $result->rowCount();
     if($num > 0){
-        #$row = $result->fetch();
-        /*$p_item = array(
-            'id' => $row['id'],
-            'name' => $row['name'],
-            'author' => $row['author'],
-            'content' => $row['content']
-        );*/
+        $row = $result->fetch();
         $p_item = array(
-            'id' => 1,
-            'name' => 'Policy',
-            'author' => 'Tran Manh Dung',
-            'content' => '<h1>We are good!</h1>'
+            'id' => $row['id'],
+            'title' => $row['title'],
+            'author' => $row['author'],
+            'content' => $row['content'],
+            'date' => $row['created_date']
         );
         http_response_code("200");
         echo json_encode($p_item);
