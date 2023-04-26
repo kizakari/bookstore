@@ -10,25 +10,35 @@
 
     $book = new Book($db);
 
-    $result = $book->getAll();
+    $cateList = $book->getCateList();
 
-    $num = $result->rowCount();
-    if($num > 0){
-        $row = $result->fetch();
-        $p_item = array(
-            'id' => $row['id'],
-            'title' => $row['title'],
-            'author' => $row['author'],
-            'content' => $row['content'],
-            'date' => $row['created_date']
-        );
-        http_response_code("200");
-        echo json_encode($p_item);
+    $result = array();
+
+    while($category = $cateList->fetch()['category_name']){
+        $carousel = array('category' => $category);
+        $carousel['data'] = array();
+        $bookList = $book->getListBooks($category);
+        if($bookList->rowCount() > 0){
+            while($row = $bookList->fetch()){
+                $book_product = array(
+                    'id' => $row['id'],
+                    'name' => $row['product_name'],
+                    'price' => $row['price'],
+                    'description' => $row['description'],
+                    'image' => $row['product_image'],
+                    'year' => $row['public_year']
+                );
+                array_push($carousel['data'],$book_product);
+            }
+        }
+        else{
+            http_response_code("200");  
+            echo json_encode(
+                array('message'=>'No Product Found')
+            );
+        }
+        array_push($result,$carousel);
     }
-    else{
-        http_response_code("400");  
-        echo json_encode(
-            array('message'=>'No Product Found')
-        );
-    }
+    http_response_code("200");
+    echo json_encode($result);
 ?>
