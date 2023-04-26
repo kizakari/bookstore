@@ -5,11 +5,11 @@ function choose(id){
         document.getElementById(id).style.backgroundColor = "rgb(76, 168, 194)";
         document.getElementById(id).style.borderRadius = "10px";
         now_choosed = id;
-        renderContent(now_choosed);
+        getData(now_choosed);
     }
 }
 
-function renderContent(id){
+function getData(id){
     main = document.getElementById('main');
     clearContent();
     if(id == 'policy-page'){
@@ -21,7 +21,7 @@ function renderContent(id){
             {
                 //Use parse() method to convert JSON string to JSON object
                 //Noi dung heading
-                createNew(JSON.parse(this.responseText));
+                showNew(JSON.parse(this.responseText));
             }
         }
         xmlhttp.open("GET", "/bookstore/apps/guest/modules/home/actions/policyAPI.php", false);
@@ -36,7 +36,7 @@ function renderContent(id){
             {
                 //Use parse() method to convert JSON string to JSON object
                 //Noi dung heading
-                createNewsList(JSON.parse(this.responseText));
+                showNewsList(JSON.parse(this.responseText));
             }
         }
         xmlhttp.open("GET", "/bookstore/apps/guest/modules/home/actions/newsAPI.php", false);
@@ -50,7 +50,7 @@ function renderContent(id){
             {
                 //Use parse() method to convert JSON string to JSON object
                 //Noi dung heading
-                createHome(JSON.parse(this.responseText));
+                showHome(JSON.parse(this.responseText));
                 //console.log(JSON.parse(this.responseText));
             }
             else if(this.readyState == 4){
@@ -62,7 +62,7 @@ function renderContent(id){
     }
 }
 
-function createNew(json){
+function showNew(json){
     var heading = "<h1 id='heading'>"+json['title']+"</h1>";
     var content = json['content'];
     var author = "<p id='author'>"+json['author']+','+"</p>";
@@ -71,15 +71,15 @@ function createNew(json){
     main.innerHTML = heading + content + author+date;
 }
 
-function createNewsList(json){
+function showNewsList(json){
     var main = document.getElementById('main');
     //console.log(json);
     for(item of json){
-        main.innerHTML += createNewsItem(item['image'],item['title'],item['date']);
+        main.innerHTML += showNewsItem(item['image'],item['title'],item['date']);
     }
 }
 
-function createNewsItem(img,title,date){
+function showNewsItem(img,title,date){
     return "<!-- News block -->"+
     "<!-- News -->"+
     "<a href='' class='text-dark'>"+
@@ -99,23 +99,23 @@ function createNewsItem(img,title,date){
     "</a>";
 }
 
-function createHome(json){
+function showHome(json){
     var main = document.getElementById('main');
     main.innerHTML = "<div class='container' style='max-width: 1000px; margin-top: 100px;'>";
     for(item of json){
-        main.innerHTML += createCarousel(item);
+        main.innerHTML += showCarousel(item);
     }
     main.innerHTML += "</div>";
 }
 
-function createCarousel(json){
+function showCarousel(json){
     //Create header of the carousel
     let str = "<div class='new-book'>"+
         "<div class='NB-text'>"+json['category']+"</div>"+
         "<div id='carouselExample' class='carousel'>"+
         "<div class='carousel-inner'>";
     for(item of json['data']){
-        str+=createCard();
+        str+=showCard(item);
     }
     str+='</div>'+
     "<button class='carousel-control-prev' type='button' data-bs-target='#carouselExample' data-bs-slide='prev'>"+
@@ -130,17 +130,18 @@ function createCarousel(json){
     return str;
 }
 
-function createCard(json){ 
+function showCard(book){ 
+    //console.log(book);
     return "<div class='carousel-item active'>"+
             "<div class='card'>"+ 
                 "<div class='image-part'>"+
                     "<div class='text-center'>"+ 
-                        "<img src='https://images-us.bookshop.org/ingram/9781638930228.jpg?height=500&v=v2-b0d66fb83651bd85cc458dfcbe6f85e9'"+ 
+                        "<img src='"+book['image']+"'"+ 
                         "class='img-fluid' width='200' />"+
                     "</div>"+ 
                     "<div class='content'>"+
                         "<div class='buttons d-flex justify-content-center'>"+ 
-                            "<button class='btn btn-outline-primary mr-1'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye-fill' viewBox='0 0 16 16'>"+
+                            "<button onclick='getDataDetail("+book['id']+")' class='btn btn-outline-primary mr-1'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye-fill' viewBox='0 0 16 16'>"+
                                 "<path d='M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z'/>"+
                                 "<path d='M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z'/>"+
                                 "</svg></button>"+ 
@@ -152,12 +153,102 @@ function createCard(json){
                     "</div>"+
                 "</div>"+
                 "<div class='NB-items'>"+
-                    "<div class='NBi-category'>Biography</div>"+
-                    "<div class='NBi-name'>Such a Fun Age</div>"+
+                    "<div class='NBi-name'>"+book['name']+"</div>"+
                     "<div class='NBi-author'>Kiley Reid</div>"+
-                    "<div class='NBi-price'>190,000 đ</div>"+
+                    "<div class='NBi-price'>"+book['price']+" vnd</div>"+
                 "</div>"+
             "</div>"+
+    "</div>";
+}
+
+function getDataDetail(book_id){
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function()
+        {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                //Use parse() method to convert JSON string to JSON object
+                //Noi dung heading
+                showDetail(JSON.parse(this.responseText));
+                //console.log(JSON.parse(this.responseText)['book']);
+            }
+            else if(this.readyState == 4){
+                console.log("Fck"); 
+            }   
+        }
+    xmlhttp.open("GET", "/bookstore/apps/guest/modules/home/actions/homeAPI.php?id="+book_id, false);
+    xmlhttp.send();
+}
+
+function showDetail(json){
+    var main = document.getElementById('main');
+    main.innerHTML = 
+     "<div class='container my-5' style='max-width: 900px;'>"+
+        "<div class='row'>"+
+            "<div class='col-12 col-lg-4'>"+
+            "    <img src='"+json['book']['image']+"'"+
+            "    class='img-fluid' alt='Book cover' style='box-shadow: 10px 10px 5px;'>"+
+            "</div>"+
+            "<div class='col-12 col-lg-8'>"+
+            "    <div class='book-name'>"+
+                json['book']['name']+
+            "    </div>"+
+            "    <div class='author my-2'>"+
+            "        <a href='#'>"+json['author']['name']+"</a> <span class='text-light-emphasis'>(Author)</span>"+
+            "    </div>"+
+            "    <div class='format my-3'>"+
+            "        <span style='font-weight: 500;font-size:small'>Định dạng</span><br>"+
+            "        <button><span style='color:rgb(83,60,157)'>Bìa cứng</span><br><span style='font-weight: bold;'>$26.04</span></button>"+
+            "    </div>"+
+            "    <div class='available my-3'>"+
+            "        AVAILABLE"+
+            "    </div>"+
+            "    <div class='buy my-3'>"+
+            "        <button class='add-to-cart'>Thêm vào giỏ hàng</button>"+
+            "        <button class='add-to-wishlist'>Thêm vào danh sách yêu thích</button>"+
+            "    </div>"+
+            "    <div class='description mt-4'>"+
+            "        <h2>Mô tả</h2>"+
+                    "<p>"+json['book']['description']+"</p>"+
+            "    </div>"+
+            "    <div class='pro-detail mt-4'>"+
+            "        <h2>Chi tiết sản phẩm</h2>"+
+            "        <table>"+
+            "            <tr class=price>"+
+            "              <td class='td-left text-light-emphasis'>Giá</td>"+
+            "              <td class='td-right'>"+json['book']['price']+" vnd</td> "+
+            "            </tr>"+
+            "            <tr class='publisher'>"+
+            "              <td class='td-left text-light-emphasis'>Nhà xuất bản</td>"+
+            "              <td class='td-right'>"+json['book']['publisher']+"</td> "+
+            "            <tr class='publish-date'>"+
+            "                <td class='td-left text-light-emphasis'>Ngày xuất bản</td>"+
+            "                <td class='td-right'>"+json['book']['public_year']+"</td>"+
+            "            </tr>"+
+            "            <tr class='pages'>"+
+            "                <td class='td-left text-light-emphasis'>Số trang</td>"+
+            "                <td class='td-right'>"+json['book']['num_page']+"</td>"+
+            "            </tr>"+
+            "            <tr class='lang'>"+
+            "                <td class='td-left text-light-emphasis'>Ngôn ngữ</td>"+
+            "                <td class='td-right'>"+json['book']['lang']+"</td>"+
+            "            </tr>"+
+            "            <tr class='type'>"+
+            "                <td class='td-left text-light-emphasis'>Loại</td>"+
+            "                <td class='td-right'>"+json['book']['type']+"</td>"+
+            "            </tr>"+
+            "          </table>"+
+            "    </div>"+
+            "    <div class='about-author mt-4'>"+
+            "        <h2>Về tác giả</h2>"+
+                    json['author']['about']+
+            "    </div>"+
+            "    <div class='review mt-4'>"+
+            "        <h2>Nhận xét</h2>"+
+                    json['book']['critic']+
+            "    </div>"+
+            "</div>"+
+        "</div>"+
     "</div>";
 }
 

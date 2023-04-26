@@ -34,5 +34,12 @@ class Book{
         $stmt = $this->pdo->query("SELECT * FROM book_category");
         return $stmt;
     }
+
+    function getDetail($book_id){
+        $stmt = $this->pdo->query("SELECT * FROM book 
+        INNER JOIN author ON book.author_id = author.id
+        WHERE book.id=".$book_id);
+        return $stmt;
+    }
 }   
 ?>
