@@ -1,6 +1,14 @@
 <?php
 class Account{
-    public $name,$email,$password,$id,$pdo;
+    public $name;
+    public $email;
+    public $password;
+    public $id;
+    public $addressList;
+    public $favList;
+    public $paymentMethod;
+    public $pdo;
+    
     function __construct($pdo){
         $this->pdo = $pdo;
     }
@@ -43,6 +51,20 @@ class Account{
         $stmt = $this->pdo->query("SELECT image FROM site_user WHERE id = ".$this->id);
         $result = $stmt->fetch();
         return $result['image'];
+    }
+
+    function getAllInfo($user_id){
+        #Get personal info
+        $stmt = $this->pdo->query("SELECT * FROM site_user WHERE id = $user_id");
+        $result = $stmt->fetch();
+        $this->name = $result['name'];
+        $this->email = $result['email'];
+        $this->password = $result['password'];
+        $this->id = $result['id'];
+
+        #Get favList
+        #Get paymentMethod
+        #Get addressList
     }
 }
 ?>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="bg-light" style="min-height: 1800px;">
+    <div class="container text-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png" 
+        alt="logo"
+        width="72"
+        height="72"
+        class="py-5 d-block mx-auto">
+        <h2>Cài đặt người dùng</h2>
+        <p class="lead">BK Book luôn là một người bạn tốt!</p>
+    </div>
+
+    <div class="container">
+        <form onsubmit="return validate()" name="myForm">
+            <div class="row g-3">
+                <div class="col-6">
+                    <h4 class="mb-3">Thông tin cá nhân</h4>
+                    <label for="email" class="form-label">Email</label>
+                    <a href="#" id="changeEmail"> *Thay đổi</a>
+                    <input type="text" 
+                    class="form-control"
+                    id="email"
+                    name="email">
+                    <label for="name" class="form-label">Họ tên</label>
+                    <a href="#" id="changeName">*Thay đổi</a>
+                    <input type="text" 
+                    class="form-control"
+                    id="name" 
+                    name="name">
+                    <a href="#" id="changePassword">*Thay đổi mật khẩu</a>
+                    <h4 class="my-3">Loại sách ưa thích của bạn</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="mb-3">Phương thức thanh toán</h4>
+                    <h4 class="mb-3">Địa chỉ giao hàng</h4>
+                </div>
+            </div>
+            <div class="col-6">
+                <input type="submit" class="btn btn-primary btn-lg btn-block">
+                <input type="reset" class="btn btn-light btn-lg btn-block">
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="myScript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

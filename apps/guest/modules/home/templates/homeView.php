@@ -19,5 +19,4 @@
 
     //Footer
     require_once $_SERVER['DOCUMENT_ROOT']."/bookstore/web/html/footer.html";
-    //echo "hi";
 ?>
