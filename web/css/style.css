@@ -79,14 +79,13 @@ body {
     background-color: #00ABC5;
     text-align: center;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    
 }
 
 .search-content { 
     color: white;
-    position: relative;
+    margin: auto;
 }
 
 .search-input {
@@ -110,6 +109,22 @@ body {
 .icon-color {
     color: #fff;
 }
+
+.cart-dropdown{
+    text-align: left;
+}
+
+.cart-link {
+    text-decoration: none;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #fff;
+}
+
+.cart-btn {
+    text-decoration: none;
+}
+
 .banner {
     width: 100%;
     height: 60vh;

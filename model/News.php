@@ -5,6 +5,9 @@ class News{
     public $date;
     public $title;
     public $content;
+    public $email;
+    public $name;
+    public $password;
     public $pdo;
     function __construct($pdo){
         $this->pdo = $pdo;
