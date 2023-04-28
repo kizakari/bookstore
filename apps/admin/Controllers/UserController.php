@@ -48,7 +48,7 @@ if(isset($_GET['act'])) {
             
             $user = array (
                 'name' => $_POST["name"],
-                'id' => $_POST["id"],
+                
                 'email' => $_POST["email"],
                 'phone_number' => $_POST["phone"],
                 'password' => $_POST["password"],

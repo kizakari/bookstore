@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.php?action=Admin&act=allorder">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Quản lý Đơn đặt hàng</span>
                     </a>

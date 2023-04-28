@@ -27,7 +27,7 @@ if(isset($_GET['act'])) {
                 $ad = new Admin();
                 $uploadCheck = true;
                 $image = $_FILES['image'];
-                $target_dir = "/bookstore/web/assets/img";
+                $target_dir = $_SERVER['DOCUMENT_ROOT']."/bookstore/web/assets/img";
                 $target_image = $target_dir . "/" . basename($image['name']);
                 $name_image = basename($image['name']);
                 $imageFileType = strtolower(pathinfo($target_image, PATHINFO_EXTENSION));
@@ -133,6 +133,29 @@ if(isset($_GET['act'])) {
                 } else {
                     echo "<script>alert('Category product Fail')</script>";
                     echo '<meta http-equiv="refresh" content= "0; url=./index.php?action=Admin&act=allcategory"/>';
+                }
+                break;
+            
+            case 'updateOrder':
+                if(isset($_POST['id']) && isset($_POST['userId'])) {
+                    $id = $_POST['id'];
+                    $userId = $_POST['userId'];
+                    $date_string = $_POST['date'];
+                    $date = date('Y-m-d ', strtotime($date_string));
+                    $total = $_POST['total'];
+                    $status = $_POST['status'];
+        
+                    $ad = new Admin();
+                    $order = $ad->getSingleOrder($id);
+    
+                    if($order) {
+                        $ad->updateOrder($id, $userId, $date, $total, $status);
+                        echo "<script>alert('Update Hóa đơn thành công')</script>";
+                        echo '<meta http-equiv="refresh" content= "0; url=./index.php?action=Admin&act=allorder"/>';
+                    } else {
+                        echo "<script>alert('Update Order fail')</script>";
+                        include "./view/EditOrder.php";
+                    }
                 }
                 break;
     

@@ -31,6 +31,12 @@ switch($act) {
     case "editcategory":
         include "./view/EditCategory.php";
         break;
+    case "allorder":
+        include "./view/AllOrder.php";
+        break;
+    case "editorder":
+        include "./view/EditOrder.php";
+        break;
 
 }
     
