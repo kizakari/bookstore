@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2023 at 10:37 AM
+-- Generation Time: Apr 28, 2023 at 06:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -29,10 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `address` (
   `id` int(11) NOT NULL,
-  `province` varchar(255) DEFAULT NULL,
-  `district` varchar(255) DEFAULT NULL,
-  `street` varchar(255) DEFAULT NULL,
-  `home_number` int(11) DEFAULT NULL
+  `dest` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,7 +98,11 @@ CREATE TABLE `book_category` (
 
 INSERT INTO `book_category` (`id`, `category_name`) VALUES
 (1, 'Sách trinh thám'),
-(2, 'Truyện người lớn');
+(2, 'Truyện người lớn'),
+(3, 'Sách kinh dị '),
+(4, 'Văn học nước ngoài'),
+(5, 'Văn học trong nước'),
+(6, 'Khoa học đời sống ');
 
 -- --------------------------------------------------------
 
@@ -116,6 +117,34 @@ CREATE TABLE `customer_review` (
   `rating_value` int(11) DEFAULT NULL,
   `comment` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favourite_category`
+--
+
+CREATE TABLE `favourite_category` (
+  `user_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favourite_category`
+--
+
+INSERT INTO `favourite_category` (`user_id`, `category_id`) VALUES
+(4, 1),
+(4, 2),
+(4, 3),
+(5, 2),
+(5, 3),
+(5, 4),
+(1, 5),
+(2, 1),
+(2, 2),
+(3, 1),
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -276,12 +305,12 @@ CREATE TABLE `site_user` (
 --
 
 INSERT INTO `site_user` (`id`, `name`, `email`, `phone_number`, `password`, `image`) VALUES
-(1, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.edu', '', '123', 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y6Tylbkk9AMAX8QQK0L&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfCb5mrsCozP3CfA2qc85W5JrjIC14lTk5JZo9FDVlRkmw&oe=64477B7A'),
-(2, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.e', NULL, '123', NULL),
-(3, 'Trần Mạnh Dũng', 'dung.tran@hcmut.edu.vn', NULL, '123456', NULL),
-(4, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.edu.vn', NULL, '123', 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SVTDNltbzU8AX9Gd2td&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfC99H9sVeW4whoLh5TuJoa1QgX8S2zqtw7jSPqt2eENvQ&oe=64477B7A'),
-(5, 'Báo Đạo', 'badao@gg.com', NULL, '123', 'https://cdn-icons-png.flaticon.com/512/21/21294.png'),
-(6, 'nguyen', 'dung@adfa.ajjaja', NULL, '111', 'https://cdn-icons-png.flaticon.com/512/21/21294.png');
+(1, '', '', '0522912500', '123', 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y6Tylbkk9AMAX8QQK0L&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfCb5mrsCozP3CfA2qc85W5JrjIC14lTk5JZo9FDVlRkmw&oe=64477B7A'),
+(2, '', '', '0522912500', '123', NULL),
+(3, '', '', '0522912500', '123', NULL),
+(4, 'Trần Mạnh', 'dung.trandeptrai@hcmut.edu.vn', '0522912500', '123', '/bookstore/uploads/4.jpg'),
+(5, 'Báo Đạo Bố Đời', 'badao@gg.com', '1234567', '', 'https://cdn-icons-png.flaticon.com/512/21/21294.png'),
+(6, 'nguyen', 'dung@adfa.ajjaja', NULL, '111', '/bookstore/uploads/6.jpg');
 
 -- --------------------------------------------------------
 
@@ -291,9 +320,33 @@ INSERT INTO `site_user` (`id`, `name`, `email`, `phone_number`, `password`, `ima
 
 CREATE TABLE `user_address` (
   `user_id` int(11) DEFAULT NULL,
-  `address_id` int(11) DEFAULT NULL,
-  `is_default` tinyint(1) DEFAULT NULL
+  `is_default` tinyint(1) DEFAULT NULL,
+  `address` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_address`
+--
+
+INSERT INTO `user_address` (`user_id`, `is_default`, `address`) VALUES
+(5, 0, ''),
+(5, 0, ''),
+(5, 0, ''),
+(1, 0, ''),
+(1, 0, ''),
+(1, 0, ''),
+(2, 0, ''),
+(2, 0, ''),
+(2, 0, ''),
+(3, 0, ''),
+(3, 0, ''),
+(3, 0, ''),
+(4, 0, ''),
+(4, 0, ''),
+(4, 0, ''),
+(6, 0, ''),
+(6, 0, ''),
+(6, 0, '');
 
 -- --------------------------------------------------------
 
@@ -347,6 +400,13 @@ ALTER TABLE `customer_review`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `ordered_product_id` (`ordered_product_id`);
+
+--
+-- Indexes for table `favourite_category`
+--
+ALTER TABLE `favourite_category`
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `news`
@@ -429,8 +489,7 @@ ALTER TABLE `site_user`
 -- Indexes for table `user_address`
 --
 ALTER TABLE `user_address`
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `address_id` (`address_id`);
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `user_payment_method`
@@ -480,6 +539,13 @@ ALTER TABLE `customer_review`
   ADD CONSTRAINT `customer_review_ibfk_2` FOREIGN KEY (`ordered_product_id`) REFERENCES `order_line` (`id`);
 
 --
+-- Constraints for table `favourite_category`
+--
+ALTER TABLE `favourite_category`
+  ADD CONSTRAINT `favourite_category_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `site_user` (`id`),
+  ADD CONSTRAINT `favourite_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `book_category` (`id`);
+
+--
 -- Constraints for table `order_line`
 --
 ALTER TABLE `order_line`
@@ -515,13 +581,6 @@ ALTER TABLE `shop_order`
   ADD CONSTRAINT `shop_order_ibfk_3` FOREIGN KEY (`shipping_address`) REFERENCES `address` (`id`),
   ADD CONSTRAINT `shop_order_ibfk_4` FOREIGN KEY (`shipping_method`) REFERENCES `shipping_method` (`id`),
   ADD CONSTRAINT `shop_order_ibfk_5` FOREIGN KEY (`order_status`) REFERENCES `order_status` (`id`);
-
---
--- Constraints for table `user_address`
---
-ALTER TABLE `user_address`
-  ADD CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `site_user` (`id`),
-  ADD CONSTRAINT `user_address_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`);
 
 --
 -- Constraints for table `user_payment_method`
