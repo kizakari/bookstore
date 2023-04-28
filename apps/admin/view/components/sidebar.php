@@ -16,7 +16,7 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">             
                             <a class="collapse-item" href="index.php?action=Admin&act=allproduct">Tất cả sách</a>
-                            <a class="collapse-item" href="register.html">Thêm sách mới</a>
+                            <a class="collapse-item" href="index.php?action=Admin&act=addproduct">Thêm sách mới</a>
                         </div>
                     </div>
                 </li>
@@ -29,8 +29,8 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">             
-                            <a class="collapse-item" href="login.html">Tất cả tài khoản</a>
-                            <a class="collapse-item" href="register.html">Register</a>
+                            <a class="collapse-item" href="index.php?action=Admin&act=alluser">Tất cả tài khoản</a>
+                            <a class="collapse-item" href="index.php?action=Admin&act=adduser">Thêm tài khoản</a>
                         </div>
                     </div>
                 </li>
@@ -43,8 +43,8 @@
                     </a>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">             
-                            <a class="collapse-item" href="login.html">Tất cả thể loại</a>
-                            <a class="collapse-item" href="register.html">Thêm thể loại</a>
+                            <a class="collapse-item" href="index.php?action=Admin&act=allcategory">Tất cả thể loại</a>
+                            <a class="collapse-item" href="index.php?action=Admin&act=addcategory">Thêm thể loại</a>
                         </div>
                     </div>
                 </li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2023 at 01:50 PM
+-- Generation Time: Apr 28, 2023 at 12:22 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -131,7 +131,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category_id`, `variation_option_id`, `product_name`, `price`, `quantity`, `description`, `product_image`) VALUES
-(1, 6, 601, 'Con Chim Xanh Biếc Bay Về', 112000, 99, 'Không giống như những tác phẩm trước đây lấy bối cảnh vùng quê miền Trung đầy ắp những hoài niệm tuổi thơ dung dị, trong trẻo với các nhân vật ở độ tuổi dậy thì, trong quyển sách mới lần này nhà văn Nguyễn Nhật Ánh lấy bối cảnh chính là Sài Gòn – Thành phố Hồ Chí Minh nơi tác giả sinh sống (như là một sự đền đáp ân tình với mảnh đất miền Nam). Các nhân vật chính trong truyện cũng “lớn” hơn, với những câu chuyện mưu sinh lập nghiệp lắm gian nan thử thách của các sinh viên trẻ đầy hoài bão. Tất nhiên không thể thiếu những câu chuyện tình cảm động, kịch tính và bất ngờ khiến bạn đọc ngẩn ngơ, cười ra nước mắt. Và như trong mọi tác phẩm Nguyễn Nhật Ánh, sự tử tế và tinh thần hướng thượng vẫn là điểm nhấn quan trọng trong quyển sách mới này.', '\\bookstore\\web\\assets\\img\\vh01.jpg'),
+(0, NULL, NULL, 'asdasd', 123123, 2, 'asdasdsadsad', '/bookstore/web/assets/img/Hakurei.Reimu.full.2683114.png'),
+(1, 6, 601, 'Trần Mạnh Dũng', 0, 0, '', '\\bookstore\\web\\assets\\img\\vh01.jpg'),
 (2, 6, 601, 'Cà Phê Cùng Tony (Tái Bản 2017)', 63000, 99, 'Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.', '\\bookstore\\web\\assets\\img\\vh02.jpg'),
 (3, 6, 601, '5 Centimet Trên Giây', 50000, 99, 'Bằng giọng văn tinh tế, truyền cảm, Năm centimet trên giây mang đến những khắc họa mới về tâm hồn và khả năng tồn tại của cảm xúc, bắt đầu từ tình yêu trong sáng, ngọt ngào của một cô bé và cậu bé. Ba giai đoạn, ba mảnh ghép, ba ngôi kể chuyện khác nhau nhưng đều xoay quanh nhân vật nam chính, người luôn bị ám ảnh bởi kí ức và những điều đã qua…', '\\bookstore\\web\\assets\\img\\vh03.jpg'),
 (4, 6, 601, 'Mắt Biếc', 91000, 99, 'Mắt biếc là một tác phẩm được nhiều người bình chọn là hay nhất của nhà văn Nguyễn Nhật Ánh. Tác phẩm này cũng đã được dịch giả Kato Sakae dịch sang tiếng Nhật để giới thiệu với độc giả Nhật Bản.', '\\bookstore\\web\\assets\\img\\vh04.jpg'),
@@ -261,9 +262,9 @@ CREATE TABLE `site_user` (
 --
 
 INSERT INTO `site_user` (`id`, `name`, `email`, `phone_number`, `password`, `role`, `image`) VALUES
-(1, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.edu', '', '123', 0, 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y6Tylbkk9AMAX8QQK0L&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfCb5mrsCozP3CfA2qc85W5JrjIC14lTk5JZo9FDVlRkmw&oe=64477B7A'),
-(2, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.e', NULL, '123', 0, NULL),
-(3, 'Trần Mạnh Dũng', 'dung.tran@hcmut.edu.vn', NULL, '123456', 0, NULL),
+(1, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.edu', '034567891', '123', 0, 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y6Tylbkk9AMAX8QQK0L&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfCb5mrsCozP3CfA2qc85W5JrjIC14lTk5JZo9FDVlRkmw&oe=64477B7A'),
+(2, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.e', '0345678912', '123', 0, NULL),
+(3, 'Trần Mạnh Dũng', 'dung.tran@hcmut.edu.vn', '0345678912', '123456', 0, NULL),
 (4, 'Trần Mạnh Dũng', 'dung.trandeptrai@hcmut.edu.vn', NULL, '123', 0, 'https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/274864653_3825922390966336_7872099780439800705_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SVTDNltbzU8AX9Gd2td&_nc_ht=scontent.fsgn14-1.fna&oh=00_AfC99H9sVeW4whoLh5TuJoa1QgX8S2zqtw7jSPqt2eENvQ&oe=64477B7A'),
 (5, 'Báo Đạo', 'badao@gg.com', NULL, '123', 1, 'https://cdn-icons-png.flaticon.com/512/21/21294.png'),
 (6, 'nguyen', 'dung@adfa.ajjaja', NULL, '111', 0, 'https://cdn-icons-png.flaticon.com/512/21/21294.png');
@@ -277,7 +278,7 @@ INSERT INTO `site_user` (`id`, `name`, `email`, `phone_number`, `password`, `rol
 CREATE TABLE `user_address` (
   `user_id` int(11) DEFAULT NULL,
   `address_id` int(11) DEFAULT NULL,
-  `is_default` tinyint(1) DEFAULT NULL
+  `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -459,6 +460,18 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `site_user`
 --
 ALTER TABLE `site_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `product_category`
+--
+ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --

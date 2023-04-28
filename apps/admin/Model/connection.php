@@ -19,5 +19,15 @@
 		    }
         }
 
+        public function getList($query) {
+            $result = $this->conn->query($query);
+            return $result;
+        }
+
+        public function Exec($query){
+            $result = $this->conn->execute_query($query);
+            return $result;
+        }
+
     }
 ?>

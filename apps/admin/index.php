@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include './Model/admin.php';
+include_once './Model/admin.php';
+include_once './Model/product.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ include './Model/admin.php';
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
+        <title>BB Admin - Dashboard</title>
 
         <!-- Custom fonts for this template-->
         <link href="./public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,7 +22,12 @@ include './Model/admin.php';
             rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
+        
+        <!-- Custom styles for this template -->
+        <link href="/bookstore/apps/admin/public/css/sb-admin-2.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this page -->
+        <link href="/bookstore/apps/admin/public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     </head>
     <body id="page-top">
         
@@ -49,19 +55,33 @@ include './Model/admin.php';
         
 
         <script src="./public/vendor/jquery/jquery.min.js"></script>
-    <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="./public/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="./public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="./public/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="./public/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="./public/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="./public/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="./public/js/demo/chart-area-demo.js"></script>
-    <script src="./public/js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="./public/js/demo/chart-area-demo.js"></script>
+        <script src="./public/js/demo/chart-pie-demo.js"></script>
+        
+        
+
+        <!-- Core plugin JavaScript-->
+        
+
+        
+
+        <!-- Page level plugins -->
+        <script src="./public/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="./public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="./public/js/demo/datatables-demo.js"></script>
     </body>
 </html>
