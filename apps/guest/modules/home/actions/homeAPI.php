@@ -16,10 +16,10 @@
 
         $result = array();
 
-        while($category = $cateList->fetch()['category_name']){
-            $carousel = array('category' => $category);
+        while($category = $cateList->fetch()){
+            $carousel = array('category' => $category['category_name']);
             $carousel['data'] = array();
-            $bookList = $book->getListBooks($category);
+            $bookList = $book->getListBooks($category['id']);
             if($bookList->rowCount() > 0){
                 while($row = $bookList->fetch()){
                     $book_product = array(

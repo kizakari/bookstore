@@ -1,17 +1,18 @@
 let now_choosed = 'home-page';
 function choose(id){
-    if(now_choosed != id){
         document.getElementById(now_choosed).style.backgroundColor = "white";
         document.getElementById(id).style.backgroundColor = "rgb(76, 168, 194)";
         document.getElementById(id).style.borderRadius = "10px";
         now_choosed = id;
         getData(now_choosed);
-    }
 }
 
 function getData(id){
     main = document.getElementById('main');
     clearContent();
+    if(id == 'product-page'){
+        window.location = '/bookstore/apps/guest/modules/products.php';
+    }
     if(id == 'policy-page'){
         var xmlhttp = new XMLHttpRequest();
 
@@ -51,7 +52,6 @@ function getData(id){
                 //Use parse() method to convert JSON string to JSON object
                 //Noi dung heading
                 showHome(JSON.parse(this.responseText));
-                //console.log(JSON.parse(this.responseText));
             }
             else if(this.readyState == 4){
                 console.log("Fck"); 
@@ -132,7 +132,7 @@ function showCarousel(json){
 
 function showCard(book){ 
     //console.log(book);
-    return "<div class='carousel-item active'>"+
+    return "<div class='carousel-item'>"+
             "<div class='card'>"+ 
                 "<div class='image-part'>"+
                     "<div class='text-center'>"+ 
@@ -255,3 +255,39 @@ function showDetail(json){
 function clearContent(){
     document.getElementById('main').innerHTML = "";
 }
+
+
+
+var multipleCardCarousel = document.querySelector(
+    "#carouselExample"
+  );
+  if (window.matchMedia("(min-width: 800px)").matches) {
+    var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+      interval: false,
+    });
+    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+    var cardWidth = $(".carousel-item").width();
+    var scrollPosition = 0;
+    $(".carousel-control-next").on("click", function () {
+      if (scrollPosition < carouselWidth - cardWidth * 4) {
+        scrollPosition += cardWidth;
+        $(".carousel-inner").animate(
+          { scrollLeft: scrollPosition },
+          600
+        );
+      }
+    });
+    $(".carousel-control-prev").on("click", function () {
+      if (scrollPosition > 0) {
+        scrollPosition -= cardWidth;
+        $(".carousel-inner").animate(
+          { scrollLeft: scrollPosition },
+          600
+        );
+      }
+    });
+  } else {
+    $(multipleCardCarousel).addClass("slide");
+  }
+
+  

@@ -24,9 +24,15 @@ class Book{
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    function getListBooks($category){
-        $stmt = $this->pdo->query("SELECT * FROM book 
-        INNER JOIN book_category ON book.category_id = book_category.id;");
+    function getListBooks($category_id){
+        try{
+            $stmt = $this->pdo->query("SELECT book.id as id, book.product_name,book.price,book.product_image FROM book 
+            INNER JOIN book_category ON book.category_id = book_category.id 
+            WHERE book_category.id='".$category_id."';");
+        }
+        catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
         return $stmt;
     }
 

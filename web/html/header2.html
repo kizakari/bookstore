@@ -14,11 +14,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/bookstore/web/css/style.css" />
         <script src="/bookstore/web/js/homepage.js"></script>
-        
+        <script scr="/bookstore/web/js/carousel.js"></script>
         <title>BK Bookstore</title>
     </head>
 
-    <body>
+    <body onload="choose('home-page')">
       <div class="container-md">
         <nav class="navbar navbar-expand-lg navbar-light bg-white" style="font-family: 'Roboto';">
             <a class="navbar-brand" style="color: rgb(87,149,235);" href="#">BK BOOK</a>
@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse justify-content-center p-2" id="navbarSupportedContent" >
               <ul class="navbar-nav mr-auto" style="font-size: 20px;">
                 <li class="nav-item px-2" id="home-page" onclick="choose('home-page')">
-                  <a class="nav-link text-dark" href="#"> <span class="sr-only">Trang chủ</span></a>
+                  <a class="nav-link text-dark" href="/bookstore/apps/guest/modules/home/actions/homepage.controller.php"> <span class="sr-only">Trang chủ</span></a>
                 </li>
                 <li class="nav-item px-2" id="introduce-page" onclick="choose('introduce-page')">
                   <a class="nav-link text-dark" href="#">Giới thiệu</a>
@@ -70,7 +70,9 @@
                 type="text"
                 />
                 <button class="search-icon button-hover">
-                    <i class="bi bi-search icon-color"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
                 </button>
             </div>
         </div>
