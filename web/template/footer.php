@@ -1,43 +1,42 @@
 
 <div class="container-fluid">
     <div class="footer" >
-
         <div class="footer-content">
             <div class="FC-item">
+                <div class="FCi-name">Giới thiệu</div>
                 <ul class="FCi-list"> 
-                    <div class="FCi-name">Giới thiệu</div>
-                    <li class="FCi-topic">Về chúng tôi</li>
-                    <li class="FCi-topic">Show room</li>
-                    <li class="FCi-topic">Tin tức</li>
-                    <li class="FCi-topic">Liên hệ</li>
+                    <li class="FCi-topic"><a href='#'>Về chúng tôi</a></li>
+                    <li class="FCi-topic"><a href='#'>Show room</a></li>
+                    <li class="FCi-topic"><a href='#'>Tin tức</a></li>
+                    <li class="FCi-topic"><a href='#'>Liên hệ</a></li>
                 </ul>
             </div>
 
             <div class="FC-item">
+                <div class="FCi-name">Chính sách</div>
                 <ul class="FCi-list"> 
-                    <div class="FCi-name">Chính sách</div>
-                    <li class="FCi-topic">Chính sách bảo hành</li>
-                    <li class="FCi-topic">Chính sách vận chuyển</li>
-                    <li class="FCi-topic">Chính sách thanh toán</li>
-                    <li class="FCi-topic">Chính sách đổi trả</li>
-                    <li class="FCi-topic">Chính sách bảo mật</li>
+                    <li class="FCi-topic"><a href='#'>Chính sách bảo hành</a></li>
+                    <li class="FCi-topic"><a href='#'>Chính sách vận chuyển</a></li>
+                    <li class="FCi-topic"><a href='#'>Chính sách thanh toán</a></li>
+                    <li class="FCi-topic"><a href='#'>Chính sách đổi trả</a></li>
+
                 </ul>
             </div>
             
             <div class="FC-item">
+                <div class="FCi-name">Tin tức</div>           
                 <ul class="FCi-list">
-                    <div class="FCi-name">Tin tức</div>           
-                    <li class="FCi-topic">Tin tức công nghệ</li>
-                    <li class="FCi-topic">Chia sẻ tư vấn</li>
-                    <li class="FCi-topic">Đánh giá sản phẩm</li>
-                    <li class="FCi-topic">Hướng dẫn, giải đáp</li>
-                    <li class="FCi-topic">Chính sách bảo mật</li>
+                    <li class="FCi-topic"><a href='#'>Tin tức công nghệ</a></li>
+                    <li class="FCi-topic"><a href='#'>Chia sẻ tư vấn</a></li>
+                    <li class="FCi-topic"><a href='#'>Đánh giá sản phẩm</a></li>
+                    <li class="FCi-topic"><a href='#'>Hướng dẫn, giải đáp</a></li>
+                    <li class="FCi-topic"><a href='#'>Chính sách bảo mật</a></li>
                 </ul>
             </div>
 
             <div class="FC-item">
+                <div class="FCi-name">Kết nối với chúng tôi</div>                       
                 <ul class="FCi-list"> 
-                    <div class="FCi-name">Kết nối với chúng tôi</div>                       
                     <li class="FCi-topic">
                         <img src="../../public/assets/img/fb_icon.png" style="width:5%;" alt="">
                         BK Robotic</li>

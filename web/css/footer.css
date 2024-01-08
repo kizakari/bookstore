@@ -1,0 +1,28 @@
+.containter-fluid{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footer-content{
+    background-color:rgb(160, 122, 216);
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding:20px;
+}
+
+.FC-item{
+    float: left;
+    margin-right: 100px;
+}
+
+.FCi-name{
+    font-weight:900;
+    font-size: large;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
