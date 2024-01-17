@@ -1,8 +1,5 @@
 <?php 
-$http_origin = $_SERVER['HTTP_ORIGIN'];
-if($http_origin == 'http://localhost' | $http_origin == 'http://127.0.0.1'){
-    header("Access-Control-Allow-Origin: $http_origin");
-}
+header("Access-Control-Allow-Origin: *");
 
 ini_set('display_error',1);
 error_reporting(E_ALL);

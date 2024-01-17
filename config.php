@@ -1,8 +1,8 @@
 <?php 
 $db = [
-    'host' => '127.0.0.1',
-    'username' => 'root',
-    'password' => 'Dung1822011'
+    'host' => getenv('MYSQL_HOST'),
+    'username' => getenv('MYSQL_USER'),
+    'password' => getenv('MYSQL_PASSWORD')
 ];
 
 $cateList = ['Tiểu thuyết','Phiêu lưu','Kinh điển','Khoa học viễn tưởng','Tiểu sử và Tự truyện',

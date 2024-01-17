@@ -23,7 +23,6 @@ function setupCarousel(carouselId){
     nextButton.addEventListener('click',(event)=>{
         //Calculate new scroll position
         var newScrollPosition = scrollPosition + step;
-        console.log('click click');
         // //If the scroll position is out of border, then we load more items if not reach maximum yet
         if(newScrollPosition > carouselInner[0].scrollWidth-numCardsPerSlide*cardWidth){
             if(listCarouselsState.numShowedItems[carouselId] < configCarousel.maxEachCarousel){
