@@ -90,6 +90,18 @@ class Admin extends Model{
         $db->Exec($query);
     }
 
+    public function updateOrder($id, $user_id, $date, $total, $status ) {
+        $db = new Connection();
+        $query = "UPDATE shop_order SET
+        user_id = '$user_id', 
+        order_date = '$date',
+        order_total = '$total',
+        order_status = '$status'
+        WHERE id = $id;
+        ";
+        $db->Exec($query);
+    }
+
     public function createProduct($data) {
         $db = new Connection();
         $query = "INSERT INTO book (product_name, price, quantity, product_image, description)
@@ -111,17 +123,13 @@ class Admin extends Model{
     }
 
     public function getSingleOrder($id) {
-        $db = new Connection();
+        
         $query = "SELECT * FROM shop_order WHERE id = $id";
         $result = $this->conn->query($query);
         return $result->fetch_assoc();
     }
 
-    public function updateOrder($id, $userId, $date, $total, $status ) {
-        $db = new Connection();
-        $query = "UPDATE shop_order SET user_id = $userId, order_date = $date, order_total = $total, order_status = $status WHERE id = $id";
-        $db->Exec($query);
-    }
+    
 
 }
 ?>

@@ -4,7 +4,6 @@
     require_once "../templates/sign_up.template.php";
     $sign_upView->startForm();
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-        echo "Checking account exist!";
         $database = new Database();
         $db = $database->connect();
         $user = new Account($db);

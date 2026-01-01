@@ -136,20 +136,21 @@ if(isset($_GET['act'])) {
                 }
                 break;
             
-            case 'updateOrder':
-                if(isset($_POST['id']) && isset($_POST['userId'])) {
+            case 'editOrder':
+                if (isset($_POST['id']) && isset($_POST['userId'])) {
+                    $uploadCheck = true;
                     $id = $_POST['id'];
-                    $userId = $_POST['userId'];
-                    $date_string = $_POST['date'];
-                    $date = date('Y-m-d ', strtotime($date_string));
+                    $user_id = $_POST['userId'];
                     $total = $_POST['total'];
+                    $date_string = $_POST['date'];
+                    $date = date('Y-m-d H:i:s', strtotime($date_string));
                     $status = $_POST['status'];
         
                     $ad = new Admin();
                     $order = $ad->getSingleOrder($id);
     
-                    if($order) {
-                        $ad->updateOrder($id, $userId, $date, $total, $status);
+                    if ($order) {
+                        $ad->updateOrder($id, $user_id, $date, $total, $status);
                         echo "<script>alert('Update Hóa đơn thành công')</script>";
                         echo '<meta http-equiv="refresh" content= "0; url=./index.php?action=Admin&act=allorder"/>';
                     } else {

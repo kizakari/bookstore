@@ -1,5 +1,5 @@
 <?php
-    class sign_upViewClass{
+    class Sign_upView{
         function startForm(){
             include($_SERVER['DOCUMENT_ROOT']."/bookstore/web/html/signup.html");
         }
@@ -14,5 +14,5 @@
             </script>";
         }   
     }
-    $sign_upView = new sign_upViewClass;
+    $sign_upView = new Sign_upView();
 ?>
